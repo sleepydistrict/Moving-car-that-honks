@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>moving box with arrow</title>
+  </head>
+  <body>
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+  <script type="text/javaScript">
+  var carLeft = false;
+  var value = 0
+function setup() {
+  createCanvas(600, 300);
+}
+function draw() {
+  background(255, 204, 0);
+  fill('black');
+  rect(value + 25, 25, 50, 50);
+}
+
+function keyPressed() {
+  if (keyCode === LEFT_ARROW) {
+    value += 5;
+  } else if (keyCode === RIGHT_ARROW) {
+    value -= 5;
+  }
+}
+
+  </script>
+</html>

@@ -1,0 +1,86 @@
+<html>
+    <head>
+      <title> Moving Car That Honks</title>
+    </head>
+    <body>
+
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script type="text/javaScript">
+      var v = 500;
+      var carMovement = 0;
+      var honk = false;
+      var honkX = 0;
+      var honkY = 0;
+      var honkString = "";
+      var clickCounter = 0;
+      function setup() {
+        createCanvas(800, 780);
+      }
+      function draw() {
+        //  background(255, 204, 0);
+        //sky
+        fill('magenta');
+        rect(0, 0, 800, 780);
+        //road
+        fill('grey');
+        rect(0, 400, 800, 780);
+        //wheels yo
+        fill('black');
+        ellipse(carMovement + 71, 390, 30, 30);
+        ellipse(carMovement + 141, 390, 30, 30);
+        //rims
+        fill('silver')
+        ellipse(carMovement + 71, 390, 17, 17);
+        ellipse(carMovement + 141, 390, 17, 17);
+        //body
+        fill('blue');
+        rect(carMovement + 41, 340, 130, 40);
+        fill('yellow');
+        ellipse(carMovement + 45, 350, 10, 10);
+        //break lights
+        fill('red');
+        ellipse(carMovement + 170, 350, 10, 10);
+        /*    //door
+        fill('black');
+        line(v + 75, 340, + 75, 380);
+        line(v + 133, 340, + 133, 380);
+        line(v + 113, 350, + 123, 350);
+        //antena
+        fill('black');
+        line(v + 61, 340, +  61, 300);
+        fill('orange');
+        ellipse(v + 61, 300, 7, 7); */
+        textSize(32);
+        text(honkString, honkX, honkY);
+      }
+
+
+      function keyPressed() {
+        if (keyCode === LEFT_ARROW) {
+          carMovement += 15;
+        } else if (keyCode === RIGHT_ARROW) {
+          carMovement -= 15;
+        }
+      }
+      //Make the car 'honk' by adding the text 'Honk!!!’ wherever the user
+      //clicks on the canvas with their mouse
+      function mousePressed() {
+      //  console.log(mouseX, mouseY);
+        honk = true;
+        //honkString = honkString + honkString;
+        honkX = mouseX;
+        honkY = mouseY;
+        honkString = "Honk!!!" + honkString;
+        /*clickCounter++;
+    if (clickCounter === 2) {
+      honkString = honkString + "" + honkString;
+    } else if (clickCounter === 3) {
+      honkString = honkString + "" + honkString;
+    } */
+  }
+      // - Keep the car 'honking' by adding another 'Honk' for each time
+      // the user clicks on the canvas. Finish the string by '!!!'.
+      // i.e 'Honk, Honk, Honk!!!
+    </script>
+</html>
